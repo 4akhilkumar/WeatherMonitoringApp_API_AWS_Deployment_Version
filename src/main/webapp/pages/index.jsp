@@ -96,7 +96,7 @@
             </div>
         </div>
         <div>
-        <iframe src="http://localhost:8080/weather" width="100%" height="280"></iframe>
+        <iframe src="http://ec2-34-226-153-113.compute-1.amazonaws.com:8057/weather" width="100%" height="280"></iframe>
         </div>
         <div class="weather-map-container">
             <div class="weather-map-header">
