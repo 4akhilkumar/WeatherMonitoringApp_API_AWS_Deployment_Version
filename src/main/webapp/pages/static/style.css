@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap');
+:root {
+    --medium-font-size: 1.50rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.75rem;
+    --smaller-font-size: 0.50rem;
+
+    --font-weight-400: 400;
+    --font-weight-500: 500;
+    --font-weight-600: 600;
+    --font-weight-700: 700;
+    --font-weight-800: 800; 
+    --font-weight-900: 900;
+
+    --body-color: #e1f5fe;
+    --anchor-tag: #2196f3;
+    --border-color: #0000001f;
+    --outline-color: #90caf9;
+    --text-color: #58555E;
+    --button-bg-color: #000;
+    --card-bg-color: #FFF;
+}
+
+
+:root {
+    --body-color: #e1f5fe;
+    --anchor-tag: #2196f3;
+    --border-color: #0000001f;
+    --outline-color: #90caf9;
+    --text-color: #58555E;
+    --button-bg-color: #000;
+    --card-bg-color: #FFF;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #ebebeb;
+    font-family: system-ui;
+    color: #424242;
+}
+
+.weather-map {
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    border: 1px solid #000;
+}
+
+.weather-map-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+#map { 
+    position: relative; 
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #616161;
+    min-width: fit-content;
+    font-weight: var(--font-weight-500);
+}
+
+a:hover {
+    box-shadow: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.75rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 1px 0 rgba(22, 8, 43, 0.1);
+    background-color: var(--body-color);
+    z-index: 9999;
+}
+
+.kairos-logo {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2rem;
+    box-shadow: inset 0px -2px 0px 0px #42a5f5;
+}
+
+.btn {
+    color: var(--text-color);
+    padding: 0.8rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    font-weight: 400;
+    display: block;
+    cursor: pointer;
+    /* border: 1px solid rgb(122 122 122 / 25%); */
+    border: 1px solid #efefef;
+    /* background: transparent; */
+    transition: 0.4s;
+}
+
+.login-button {
+    box-shadow: -2px 2px 0px 1px #00000040;
+}
+
+.search-place-button {
+    box-shadow: 2px 2px 0px 1px #00000040;
+}
+
+.login-button, .search-place-button {
+    background-color: #FFF;
+    font-weight: var(--font-weight-700);
+    transition: 0.4s;
+}
+
+.login-button:hover, .search-place-button:hover {
+    color: #FFF;
+    border: 1px solid var(--button-bg-color);
+    background-color: var(--button-bg-color);
+    box-shadow: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #000;
+    background: url('1920x450.jpg') 50% no-repeat,linear-gradient(#878787,#ebebeb);
+    background-size: cover;
+}
+
+.search-weather {
+    margin-top: 30vh;
+    margin-bottom: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.search-place {
+    display: flex;
+    column-gap: 0.2rem;
+}
+
+.additional-features {
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.af-box {
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .3rem;
+    padding: 1rem;
+    background: #FFF;
+}
+
+input {
+    border-radius: 0.25rem;
+    border-color: var(--border-color);
+}
+
+input:focus {
+    transition: 0.4s;
+    outline-color: var(--outline-color);
+}
+
+input[type="search"] {
+    padding: 1rem;
+    width: 50vw;
+    font-size: var(--normal-font-size);
+}
+
+@media screen and (max-width: 769px) {
+    input[type="search"] {
+        width: 70vw;
+    }
+}
+
+input::placeholder {
+    font-weight: var(--font-weight-600);
+    font-family: system-ui;
+}
+
+::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+.place_name-current-temperature h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+.place_name-current-temperature {
+    padding: .6rem .5rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    background: #0000009e;
+    color: #FFF;
+}
+
+.date-time p {
+    margin: 0;
+    padding: 0;
+}
+
+.place-country h2{
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+}
+
+.icon-temp {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.icon-temp img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
+
+.icon-temp p {
+    font-size: 2.25rem;
+}
+
+.how-weather-is-like p {
+    margin: 0;
+    padding: 0;
+}
+
+.weather-parameters-1 {
+    border-left: 3px solid #3f51b5;
+    padding-left: .5rem;
+    margin-top: .8rem;
+}
+
+.weather-wind {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.weather-wind p {
+    margin: 0;
+    padding: 0;
+}
+
+.weather-parameters-1 p {
+    margin: 0;
+    padding: 0;
+}
+    
+.box-one { 
+    border: 2px solid #4285F4;
+    color: #4285F4;
+}
+.box-two {
+    border: 2px solid #DB4437;
+    color: #DB4437;
+}
+.box-three {
+    border: 2px solid #F4B400;
+    color: #F4B400;
+}
+.box-four {
+    border: 2px solid #0F9D58;
+    color: #0F9D58;
+}
+.box-five {
+    border: 2px solid #757575;
+    color: #757575;
+}
+.box-six {
+    border: 2px solid #673ab7;
+    color: #673ab7;
+}
+
+.box-one:hover { 
+    border: 2px solid #4285F4;
+    color: #FFF;
+    background-color: #4285F4;
+}
+.box-two:hover {
+    border: 2px solid #DB4437;
+    color: #FFF;
+    background-color: #DB4437;
+}
+.box-three:hover {
+    border: 2px solid #F4B400;
+    color: #FFF;
+    background-color: #F4B400;
+}
+.box-four:hover {
+    border: 2px solid #0F9D58;
+    color: #FFF;
+    background-color: #0F9D58;
+}
+.box-five:hover {
+    border: 2px solid #757575;
+    color: #FFF;
+    background-color: #757575;
+}
+.box-six:hover {
+    border: 2px solid #673ab7;
+    color: #FFF;
+    background-color: #673ab7;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.cards_item, .cards_item-weather-news, .cards_item-climate-weather-awareness {
+    display: flex;
+    padding: 1rem;
+}
+
+.cards_item-climate-weather-awareness {
+    width: 20rem;
+}
+
+@media screen and (max-width: 601px) {
+    .yesterday-today-tomorrow {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .cards_item {
+        width: 20rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .cards_item {
+        width: 30rem;
+    }
+}
+
+ol {
+    margin-left: -1rem;
+}
+
+.card, .weather-news-card {
+    background-color: var(--card-bg-color);
+    border-radius: 0.25rem;
+    box-shadow: -2px 2px 0px 1px #00000040;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: fit-content;
+    transition: 0.4s;
+}
+
+.card:hover, .weather-news-card:hover {
+    box-shadow: none;
+}
+
+.weather-news-title, .climate-weather-awareness-title {
+    text-align: center;
+}
+
+.weather-news-card {
+    box-shadow: 2px 2px 0px 1px #00000040;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media screen and (max-width: 426px) {
+    .weather-news-card {
+        flex-direction: column;
+    }
+}
+
+.weather-news-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-news-card-title, .weather-news-card-info, .weather-news-card-date-time {
+    margin: 0;
+    padding: 0;
+    padding-top: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .card-width-100 {
+        width: 100%;
+    }
+}
+
+.card_image {
+    font-weight: 400;
+    text-align: center;
+}
+
+.card_image_icon{
+    font-size: 4rem;
+    padding: 1rem 0 0 0;
+}
+
+img {
+    flex: 1;
+    height: 100%;
+}
+
+.weather-news-image, .climate-weather-awareness-image {
+    width: 100%;
+    height: 12.5rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+h4.weather-news-card-title {
+    margin: 0;
+    padding: 0;
+}
+
+.card_content, .weather-news-card-content {
+    padding: 1rem;
+}
+
+.create_card_title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0px;
+    text-align: center;
+}
+
+.card_title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 0px;
+    text-align: center;
+}
+
+.card_text {
+    font-size: 0.875rem;
+    font-weight: 400;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.country-weather-radar {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    border: 1px solid #000;
+}
+
+.second-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 769px) {
+    .second-container {
+        flex-wrap: wrap;
+    }
+}
+
+.weather-news {
+    display: flex;
+    flex-direction: column;
+}
+
+.climate-weather-awareness {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+    .climate-weather-awareness {
+        width: 50vw;
+    }
+}
+
+.detailed-location-info {
+    background-color: var(--body-color);
+    padding: 1rem;
+    border-bottom: 2px solid #42424280;
+    border-top: 2px solid #42424280;
+}
+
+footer {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #FFF;
+}
+
+.kairos-about {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.kairos-abour-links, .subscription-services-links, .kairos-disclaimer-links {
+    display: flex;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 550px) {
+    .kairos-abour-links, .subscription-services-links, .kairos-disclaimer-links {
+        flex-wrap: wrap;
+    }
+}
+
+.subscription-services {
+    padding: 1rem 0rem;
+}
+
+.kairos-disclaimer-info {
+    border-top: 2px solid #00000040;
+    padding: 0 0 1rem 0;
+}
+
+.mapboxgl-popup-content {
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    padding: 4px 10px 2px;
+    pointer-events: auto;
+}
+
+.additional-values {
+    background: #757575;
+    padding: 1px 5px 1.5px 4px;
+    font-size: 10px;
+    color: #FFF;
+    border-radius: 24px;
+}
